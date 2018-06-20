@@ -17,14 +17,14 @@ username: flo
 password: asdf1234
 
 API's
-1. /users/create/
+1. /user/create/
 2. /login/
-3. /users/search/ (optional params status,company)
+3. /user/search/ (optional params status,company)
 
 Stats to be viewed in Admin Panel Under "Search Summary".
 
 Details about API:
-1. /users/create/
+1. /user/create/
    Method: POST
    Request Body: {"username":<username>, "password": <password>, "email":<email>, "first_name":<first_name>,
                   "last_name": <last_name>, "phone":<phone>, "company":<companyname>, "position": <position>}
@@ -42,7 +42,7 @@ Details about API:
    b. Failure:
       {"status": "error", "message": <errorString>}
    
-3. /users/search/
+3. /user/search/
    Method: GET
    Parameters:
     a. status -- active,inactive,archived
