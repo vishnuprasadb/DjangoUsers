@@ -41,7 +41,8 @@ Details about API:
       {"status":"success", "message": "User is Logged in. Username:<username>"}
    b. Failure:
       {"status": "error", "message": <errorString>}
-3./users/search/
+   
+3. /users/search/
    Method: GET
    Parameters:
     a. status -- active,inactive,archived
@@ -63,4 +64,3 @@ Details about API:
       }
     ]
    }
-  
