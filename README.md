@@ -3,9 +3,9 @@ A simple user creation and search API with Admin Interface
 
 Requirements:
 
-1.Python2
-2.Django version <2
-3.Pillow module for ImageField -- pip install Pillow
+1. Python2
+2. Django version <2
+3. Pillow module for ImageField -- pip install Pillow
 
 Steps to install.
 1. Clone the Directory.
