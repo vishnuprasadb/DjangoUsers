@@ -191,7 +191,6 @@ class Search(BaseClass, View):
 					self.build_success_resp()
 					return JsonResponse(self.success_resp)
 				else:
-					print "Hey"
 					errStr = 'Users with status "%s" NOT FOUND'%self.status
 					return self._return_json_error(errStr, True, 404)
 			else:
@@ -208,7 +207,9 @@ class Search(BaseClass, View):
 		else:
 			errStr = 'Something Went Wrong. Please try again'
 			return self._return_json_error(errStr, True, 500)
-			
+	def get(self, request, *value_tuple, **value_dict):
+		errStr = 'Please Login'
+		return self._return_json_error(errStr, True, 401)	
 	def build_success_resp(self):
 		self.success_resp = {}
 		self.success_resp['users'] = []
