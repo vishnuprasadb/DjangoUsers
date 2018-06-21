@@ -144,6 +144,9 @@ class Login(BaseClass, View):
 		else:
 			errStr = 'Bad Credentials!'
                         return self._return_json_error(errStr, True, 401)
+	def get(self, request, *value_tuple, **value_dict):
+		errStr = 'Please Login'
+		return self._return_json_error(errStr, True, 401)
 
 class Search(BaseClass, View):
 	"""
@@ -207,9 +210,7 @@ class Search(BaseClass, View):
 		else:
 			errStr = 'Something Went Wrong. Please try again'
 			return self._return_json_error(errStr, True, 500)
-	def get(self, request, *value_tuple, **value_dict):
-		errStr = 'Please Login'
-		return self._return_json_error(errStr, True, 401)	
+	
 	def build_success_resp(self):
 		self.success_resp = {}
 		self.success_resp['users'] = []
