@@ -5,9 +5,10 @@ from django.shortcuts import render
 
 from django.utils.decorators import method_decorator
 from django.views.generic import View
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from datetime import datetime
 import json
@@ -26,6 +27,7 @@ class BaseClass(object):
 		else:
 			return resp
 
+	@method_decorator(csrf_exempt)
 	def dispatch(self, request, *args, **kwargs):
                 try:
                         response = super(BaseClass, self).dispatch(request, *args, **kwargs)
@@ -57,7 +59,6 @@ class BaseClass(object):
 		if stat_dirty:
 			daily_stat.save()
 		
-
 class CreateUser(BaseClass, View):
 	"""
 	API to create an user.
@@ -104,7 +105,7 @@ class CreateUser(BaseClass, View):
 
 		success_resp = {}
 		success_resp['status'] = 'success'
-		success_resp['message'] = 'Created new user %s'%username if not created else "User details updated for %s(except passwrod)"%username
+		success_resp['message'] = 'Created new user %s'%username if created else "User details updated for %s(except passwrod)"%username
 		return JsonResponse(success_resp)
 
 class Login(BaseClass, View):
@@ -150,7 +151,7 @@ class Search(BaseClass, View):
 	API: 'user/search/'
 	METHOD(s): GET
 	"""
-	#@method_decorator(login_required)
+	@method_decorator(login_required)
 	def get(self, request, *value_tuple, **value_dict):
 		"""
 		GET Request Params: 
@@ -228,3 +229,12 @@ class Search(BaseClass, View):
 		if self.status.lower() in valid_user_statuses:
 			return True
 		return False
+
+class Logout(BaseClass, View):
+        def get(self, request, *value_tuple, **value_dict):
+		user = request.user
+                logout(request)
+   		success_resp = {}
+                success_resp['status'] = 'success'
+                success_resp['message'] = 'Successfully Logged out user:%s'%user
+                return JsonResponse(success_resp)
