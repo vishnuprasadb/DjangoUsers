@@ -9,7 +9,7 @@ Requirements:
 
 Steps to install.
 1. Clone the Directory.
-2. run migrate.sh
+2. run migrate.sh (Please give execution permissions to this file (chmod +x migrate.sh))
 3. Ready to USE.
 
 Admin User:
