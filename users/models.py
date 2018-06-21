@@ -73,4 +73,3 @@ class SearchSummary(SearchStats):
 		proxy = True
 		verbose_name = 'Search Summary'
 		verbose_name_plural = 'Search Summary'
-
