@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users.views import Login
+from users.views import Login, Logout
 
 urlpatterns = [
     url(r'^login/$', Login.as_view(), name = 'login'),
+    url(r'^logout/$', Logout.as_view(), name = 'loout'),
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('users.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
