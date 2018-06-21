@@ -20,6 +20,7 @@ API's
 1. /user/create/
 2. /login/
 3. /user/search/ (optional params status,company)
+4. /logout/
 
 Stats to be viewed in Admin Panel Under "Search Summary".
 
@@ -64,3 +65,11 @@ Details about API:
       }
     ]
    }
+ 
+ 4. /logout/
+    Method: GET
+    Response:
+    {
+    "status": "success",
+    "message": "Successfully Logged out user:<username>"
+    }
