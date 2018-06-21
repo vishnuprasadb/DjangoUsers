@@ -6,6 +6,7 @@ Requirements:
 1. Python2
 2. Django version <2 -- pip install django==1.11
 3. Pillow module for ImageField -- pip install Pillow
+4. pip install future
 
 Steps to install.
 1. Clone the Directory.
