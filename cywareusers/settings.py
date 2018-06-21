@@ -25,6 +25,8 @@ SECRET_KEY = '7ong$i@#iixhw#)cb5a2-_=t!9rqnlc%qghef(!g6t9u7=+5@p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_COOKIE_SECURE = False
+
 ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login/'
@@ -123,4 +125,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
-MEDIA_URL='media/'
+MEDIA_URL='media/
